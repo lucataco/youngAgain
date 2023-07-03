@@ -63,24 +63,47 @@ const Home: NextPage = () => {
   );
 
   async function generatePhoto(fileUrl: string) {
+    // Delay
     await new Promise((resolve) => setTimeout(resolve, 500));
     setLoading(true);
-    const res = await fetch("/api/generate", {
+
+    // Start Replicate process
+    let generateResp = await fetch("/api/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ imageUrl: fileUrl }),
     });
+    let webhookUrl = await generateResp.json();
+    console.log("Webhook URL")
+    console.log(webhookUrl);
 
-    let newPhoto = await res.json();
-    console.log("newPhoto")
-    console.log(newPhoto)
-    if (res.status !== 200) {
-      setError(newPhoto);
-    } else {
-      setRestoredImage(newPhoto);
+     // Loop until able to get result from Replicate API
+    let imageFlag = false;
+    let newPhoto;
+    while (!imageFlag) {
+      console.log("polling for result...");
+      const res = await fetch("/api/prediction", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ hookUrl: webhookUrl }),
+      });
+      let finalResponse = await res.json();
+      console.log("finalResponse")
+      console.log(finalResponse);
+      if(finalResponse !== "processing") {
+        console.log("NewPhoto")
+        imageFlag = true;
+        newPhoto = finalResponse;
+        setRestoredImage(finalResponse);
+      }
+      //Wait 1 second
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
+
     setLoading(false);
   }
 
