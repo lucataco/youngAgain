@@ -1,7 +1,6 @@
 // import { Ratelimit } from "@upstash/ratelimit";
 import type { NextApiRequest, NextApiResponse } from "next";
 import requestIp from "request-ip";
-import redis from "../../utils/redis";
 
 type Data = string;
 interface ExtendedNextApiRequest extends NextApiRequest {
@@ -10,33 +9,10 @@ interface ExtendedNextApiRequest extends NextApiRequest {
   };
 }
 
-// Create a new ratelimiter, that allows 3 requests per day
-// const ratelimit = redis
-//   ? new Ratelimit({
-//       redis: redis,
-//       limiter: Ratelimit.fixedWindow(3, "1440 m"),
-//       analytics: true,
-//     })
-//   : undefined;
-
 export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // Rate Limiter Code
-  // if (ratelimit) {
-  //   const identifier = requestIp.getClientIp(req);
-  //   const result = await ratelimit.limit(identifier!);
-  //   res.setHeader("X-RateLimit-Limit", result.limit);
-  //   res.setHeader("X-RateLimit-Remaining", result.remaining);
-
-  //   if (!result.success) {
-  //     res
-  //       .status(429)
-  //       .json("Too many uploads in 1 day. Please try again after 24 hours.");
-  //     return;
-  //   }
-  // }
 
   const imageUrl = req.body.imageUrl;
   // POST request to Replicate to start the image restoration generation process
