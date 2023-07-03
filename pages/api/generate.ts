@@ -1,6 +1,5 @@
 // import { Ratelimit } from "@upstash/ratelimit";
 import type { NextApiRequest, NextApiResponse } from "next";
-import requestIp from "request-ip";
 
 type Data = string;
 interface ExtendedNextApiRequest extends NextApiRequest {
@@ -44,6 +43,13 @@ export default async function handler(
         Authorization: "Token " + process.env.REPLICATE_API_KEY,
       },
     });
+
+    if (finalResponse.status === 504) {
+      console.warn("504 Gateway Time-out, continuing polling...");
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      continue;
+    }
+
     let jsonFinalResponse = await finalResponse.json();
     if (jsonFinalResponse.status === "succeeded") {
       restoredImage = jsonFinalResponse.output;
