@@ -24,11 +24,11 @@ class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="https://restore-photos.vercel.app/og-image.png"
+            content="https://youngagain.vercel.app/og-image.png"
           />
           <meta
             name="twitter:image"
-            content="https://restore-photos.vercel.app/og-image.png"
+            content="https://youngagain.vercel.app/og-image.png"
           />
         </Head>
         <body>
