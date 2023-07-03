@@ -4,66 +4,36 @@ const testimonials = [
   [
     {
       content:
-        "Just had early access to this and it's *ridic*. Powered by @vercel x @replicatehq – also very fast.",
-      link: "https://twitter.com/rauchg/status/1612233034622984192",
+        "AI avatars have gone viral. The realistic ones are most impressive",
+      link: "https://twitter.com/",
       author: {
-        name: "Guillermo Rauch",
-        role: "CEO at Vercel",
-        image: "/g.jpg",
-      },
-    },
-    {
-      content:
-        "This is amazing! And in the 🧵 you can see the whole open-source stack instantly deployable to Vercel",
-      link: "https://twitter.com/cramforce/status/1612496954218672128",
-      author: {
-        name: "Malte Ubl",
-        role: "CTO at Vercel",
-        image: "/malte.jpg",
+        name: "Bengio G.",
+        role: "Entrepreneur",
+        image: "/bengio.jpg",
       },
     },
   ],
   [
     {
       content:
-        "I just used it and am extremely impressed with the website and wanted to express my appreciation for the excellent design and functionality. Keep up the great work!",
-      link: "https://twitter.com/phar_whaz/status/1612498030627852309",
+        "I just used it on my grandma and loved it! Great work!",
+      link: "https://twitter.com/",
       author: {
-        name: "Fawaz Adeniji",
-        role: "Software Engineer",
-        image: "/fawaz.jpg",
-      },
-    },
-    {
-      content:
-        "Turning blurred photos into perfectly sharp ones. Works like magic",
-      link: "https://twitter.com/sergvind/status/1612610058369515521",
-      author: {
-        name: "Sergei Vinderskikh",
-        role: "CPO at Treeum",
-        image: "/sergei.jpg",
+        name: "Paulo I.",
+        role: "Consultant",
+        image: "/paulo.jpg",
       },
     },
   ],
   [
     {
       content:
-        "I've just used it and damn I'll keep coming back! This is so good. Great work!",
-      link: "https://twitter.com/Himanil_Gole/status/1612510385504157697",
+        "Hey its me! Hi. Im young again",
+      link: "https://twitter.com/",
       author: {
-        name: "Himanil Gole",
-        role: "Designer & Founder at CBREX",
-        image: "/himanil.jpg",
-      },
-    },
-    {
-      content:
-        "Wow, thank you! Tried a few and love it! My small example (pic of father from 70s original on right), really cleaned it up!",
-      link: "https://twitter.com/rod_ellison/status/1612513333302775809",
-      author: {
-        name: "Rod Ellison",
+        name: "Rafael S.",
         role: "Software Engineer",
-        image: "/rod.jpg",
+        image: "/rafa.jpg",
       },
     },
   ],
@@ -79,10 +49,10 @@ export function Testimonials() {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto md:text-center">
           <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-900 sm:text-6xl">
-            Loved by many worldwide.
+            Loved by many
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-slate-700 leading-7">
-            See what our 300,000+ users are saying about the product.
+            See what our users are saying about YoungAgain:
           </p>
         </div>
         <ul
