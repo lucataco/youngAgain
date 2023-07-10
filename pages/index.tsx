@@ -63,6 +63,19 @@ const Home: NextPage = () => {
         </div>
       </main>
       <Testimonials />
+      <p className="mx-auto mt-6 mb-6 max-w-xl text-lg text-slate-700 leading-7">
+          Support my work with a donation!
+      </p>
+      <div className="flex justify-center space-x-4 mb-2">
+        <Link href="https://buymeacoffee.com/lucataco" target="_blank">
+        <Image
+          width="200"
+          height="100"
+          src="/bmac.png"
+          alt="Buy me a Coffee"
+        />
+        </Link>
+        </div>
       <Footer />
     </div>
   );
