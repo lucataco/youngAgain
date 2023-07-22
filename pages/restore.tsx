@@ -16,9 +16,7 @@ import NSFWPredictor from "../utils/nsfwCheck";
 
 // Configuration for the uploader
 const uploader = Uploader({
-  apiKey: !!process.env.NEXT_PUBLIC_UPLOAD_API_KEY
-    ? process.env.NEXT_PUBLIC_UPLOAD_API_KEY
-    : "free",
+  apiKey: "free",
 });
 const options = {
   maxFileCount: 1,
