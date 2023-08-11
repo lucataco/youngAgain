@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import CountUp from "react-countup";
 import { UploadDropzone } from "react-uploader";
@@ -213,6 +214,19 @@ const Home: NextPage = () => {
           </AnimatePresence>
         </ResizablePanel>
       </main>
+      <p className="mx-auto mt-6 mb-6 max-w-xl text-lg text-slate-700 leading-7">
+        Support my work with a donation!
+      </p>
+      <div className="flex justify-center space-x-4 mb-6">
+        <Link href="https://buymeacoffee.com/lucataco" target="_blank">
+          <Image
+            width="200"
+            height="100"
+            src="/bmac.png"
+            alt="Buy me a Coffee"
+          />
+        </Link>
+      </div>
       <Footer />
     </div>
   );
